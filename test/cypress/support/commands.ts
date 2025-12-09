@@ -18,11 +18,11 @@ Cypress.Commands.add(
           timeout: 60000
         }).then((secondResponse) => {
           challenge = secondResponse.body.data[0]
-          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+          // eslint-disable comment removed
           expect(challenge.solved).to.be.true
         })
       } else {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        // eslint-disable comment removed
         expect(challenge.solved).to.be.true
       }
     })
@@ -52,7 +52,7 @@ Cypress.Commands.add(
 function walkRecursivelyInArray (arr: number[], cb: any, index = 0) {
   if (arr.length === 0) return
   const ret = cb(index, arr.shift());
-  // eslint-disable-next-line @typescript-eslint/prefer-optional-chain
+  // eslint-disable comment removed
   ((ret && ret.chainerId) ? ret : cy.wrap(ret))
     .then((ret: boolean) => {
       if (!ret) return

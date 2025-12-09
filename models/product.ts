@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-/* jslint node: true */
+/* jslint comment removed */
 import * as utils from '../lib/utils'
 import * as challengeUtils from '../lib/challengeUtils'
 import {
@@ -28,7 +28,7 @@ InferCreationAttributes<Product>
   declare price: number
   declare deluxePrice: number
   declare image: string
-  declare BasketItem?: CreationOptional<BasketItemModel> // Note this is optional since it's only populated when explicitly requested in code
+  declare BasketItem?: CreationOptional<BasketItemModel> 
 }
 
 const ProductModelInit = (sequelize: Sequelize) => {

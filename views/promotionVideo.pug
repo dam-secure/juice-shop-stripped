@@ -37,10 +37,8 @@ html(lang='en')
               a(href='./#/' style='color: _textColor_; text-decoration:none;')
                 span(style='margin-right: 20px;')
                   | Back
-              // Logo
               a(href='./#/')
                 img(src='assets/public/images/JuiceShop_Logo.png', style='max-height: 60px; width: auto;', alt='_title_ Logo')
-              // Title
               a(href='./#/' style='color: _textColor_; text-decoration:none;')
                span.mdl-layout-title(style='font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif;')
                  | _title_
@@ -79,7 +77,6 @@ html(lang='en')
             if (splitted.length != 2) {
             throw 'Error when splitting "-->": ' + lines[i];
             }
-            // Already ignoring anything past the "end" timestamp (i.e. cue settings).
             start = parse_timestamp(splitted[0]);
             end = parse_timestamp(splitted[1]);
             } else if (lines[i] == '') {

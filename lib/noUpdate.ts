@@ -1,7 +1,7 @@
-// Credit for the implementation in JS: https://github.com/daviddossantos/sequelize-notupdate-attributes
+
 import { type Model, type ValidationErrorItemType } from 'sequelize/types'
 import { type ValidationOptions } from 'sequelize/types/instance-validator'
-// @ts-expect-error FIXME due to non-existing type definitions for sequelize/lib/errors
+// @ts-expect-error comment removed
 import { ValidationError, ValidationErrorItem } from 'sequelize/lib/errors'
 
 interface ExtendedValidationOptions extends ValidationOptions {

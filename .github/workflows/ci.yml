@@ -26,9 +26,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Use Node.js 22"
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af #v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
         with:
           node-version: ${{ env.NODE_DEFAULT_VERSION }}
       - name: "Install application minimalistically"
@@ -56,9 +56,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Use Node.js 22"
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af #v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
         with:
           node-version: ${{ env.NODE_DEFAULT_VERSION }}
       - name: "Install application"
@@ -69,15 +69,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest] # FIXME: Removed "windows-latest" due to 'Error: ENOENT: no such file or directory, open' error breaking at least on Node 20.0 constantly
+        os: [ubuntu-latest, macos-latest]
         node-version: [20, 22, 24]
     steps:
       - name: "Check out Git repository"
         if: github.repository == 'juice-shop/juice-shop' || (github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '22')
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Use Node.js ${{ matrix.node-version }}"
         if: github.repository == 'juice-shop/juice-shop' || (github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '22')
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af #v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
         with:
           node-version: ${{ matrix.node-version }}
       - name: "Install application"
@@ -85,7 +85,7 @@ jobs:
         run: npm install
       - name: "Execute unit tests"
         if: github.repository == 'juice-shop/juice-shop' || (github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '22')
-        uses: nick-invision/retry@7152eba30c6575329ac0576536151aca5a72780e #v3.0.0
+        uses: nick-invision/retry@7152eba30c6575329ac0576536151aca5a72780e
         with:
           timeout_minutes: 15
           max_attempts: 3
@@ -99,7 +99,7 @@ jobs:
         shell: bash
       - name: "Upload unit test coverage data"
         if: github.repository == 'juice-shop/juice-shop' && github.event_name == 'push' && matrix.os == 'ubuntu-latest' && matrix.node-version == '22'
-        uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b #v4.5.0
+        uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b
         with:
           name: unit-test-lcov
           path: |
@@ -114,10 +114,10 @@ jobs:
     steps:
       - name: "Check out Git repository"
         if: github.repository == 'juice-shop/juice-shop' || (github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '22')
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Use Node.js ${{ matrix.node-version }}"
         if: github.repository == 'juice-shop/juice-shop' || (github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '22')
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af #v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
         with:
           node-version: ${{ matrix.node-version }}
       - name: "Install application"
@@ -125,7 +125,7 @@ jobs:
         run: npm install
       - name: "Execute integration tests"
         if: github.repository == 'juice-shop/juice-shop' || (github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '22')
-        uses: nick-invision/retry@7152eba30c6575329ac0576536151aca5a72780e #v3.0.0
+        uses: nick-invision/retry@7152eba30c6575329ac0576536151aca5a72780e
         env:
           NODE_ENV: test
         with:
@@ -137,7 +137,7 @@ jobs:
         run: cp build/reports/coverage/api-tests/lcov.info api-lcov.info
       - name: "Upload API test coverage data"
         if: github.repository == 'juice-shop/juice-shop' && github.event_name == 'push' && matrix.os == 'ubuntu-latest' && matrix.node-version == '22'
-        uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b #v4.5.0
+        uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b
         with:
           name: api-test-lcov
           path: |
@@ -148,13 +148,13 @@ jobs:
     if: github.repository == 'juice-shop/juice-shop' && github.event_name == 'push'
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Download unit test coverage data"
-        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 #v4.1.8
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16
         with:
           name: unit-test-lcov
       - name: "Download API test coverage data"
-        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 #v4.1.8
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16
         with:
           name: api-test-lcov
       - name: "Publish coverage to Coveralls"
@@ -166,16 +166,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Use Node.js 22"
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af #v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
         with:
           node-version: ${{ env.NODE_DEFAULT_VERSION }}
       - name: "Install application"
         if: github.repository == 'juice-shop/juice-shop' || (github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '22')
         run: npm install
       - name: "Execute server tests for each custom configuration"
-        uses: nick-invision/retry@7152eba30c6575329ac0576536151aca5a72780e #v3.0.0
+        uses: nick-invision/retry@7152eba30c6575329ac0576536151aca5a72780e
         with:
           timeout_minutes: 30
           max_attempts: 3
@@ -196,13 +196,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-        browser: [chrome] # FIXME Switch back to [chrome, firefox] after debugging extreme flakiness of Firefox on CI/CD
+        browser: [chrome]
       fail-fast: false
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Use Node.js 22"
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af #v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
         with:
           node-version: ${{ env.NODE_DEFAULT_VERSION }}
       - name: "Install CLI tools"
@@ -211,7 +211,7 @@ jobs:
         run: npm install
       - name: "Execute end-to-end tests on Ubuntu"
         if: ${{ matrix.os == 'ubuntu-latest' }}
-        uses: cypress-io/github-action@57b70560982e6a11d23d4b8bec7f8a487cdbb71b #v6.7.8
+        uses: cypress-io/github-action@57b70560982e6a11d23d4b8bec7f8a487cdbb71b
         with:
           install: false
           browser: ${{ matrix.browser }}
@@ -225,7 +225,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: "Execute end-to-end tests on Mac"
         if: ${{ matrix.os == 'macos-latest' }}
-        uses: cypress-io/github-action@57b70560982e6a11d23d4b8bec7f8a487cdbb71b #v6.7.8
+        uses: cypress-io/github-action@57b70560982e6a11d23d4b8bec7f8a487cdbb71b
         with:
           install: false
           browser: ${{ matrix.browser }}
@@ -241,9 +241,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Use Node.js 22"
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af #v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
         with:
           node-version: ${{ env.NODE_DEFAULT_VERSION }}
       - name: "Install CLI tools"
@@ -274,7 +274,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Execute smoke test on Docker"
         run: docker compose -f docker-compose.test.yml up --exit-code-from sut
   docker:
@@ -283,13 +283,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Set up QEMU"
-        uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf #v3.2.0
+        uses: docker/setup-qemu-action@49b3bc8e6bdd4a60e6116a5414239cba5943d3cf
       - name: "Set up Docker Buildx"
-        uses: docker/setup-buildx-action@6524bf65af31da8d45b59e8c27de4bd072b392f5 #v3.8.0
+        uses: docker/setup-buildx-action@6524bf65af31da8d45b59e8c27de4bd072b392f5
       - name: "Login to DockerHub"
-        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 #v3.3.0
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -303,7 +303,7 @@ jobs:
           echo "VCS_REF=`git rev-parse --short HEAD`" >> $GITHUB_ENV
           echo "BUILD_DATE=`date -u +”%Y-%m-%dT%H:%M:%SZ”`" >> $GITHUB_ENV
       - name: "Build and push for AMD64 and ARM64 processors"
-        uses: docker/build-push-action@48aba3b46d1b1fec4febb7c5d0c644b249a11355 #v6.1.0
+        uses: docker/build-push-action@48aba3b46d1b1fec4febb7c5d0c644b249a11355
         with:
           context: .
           file: ./Dockerfile
@@ -321,7 +321,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: "Install Heroku CLI"
         run: curl https://cli-assets.heroku.com/install.sh | sh
       - name: "Set Heroku app & branch for ${{ github.ref }}"
@@ -334,7 +334,7 @@ jobs:
           echo "HEROKU_BRANCH=develop" >> $GITHUB_ENV
           fi
       - name: "Deploy ${{ github.ref }} to Heroku"
-        uses: akhileshns/heroku-deploy@581dd286c962b6972d427fcf8980f60755c15520 #v3.13.15
+        uses: akhileshns/heroku-deploy@581dd286c962b6972d427fcf8980f60755c15520
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ env.HEROKU_APP }}
@@ -352,7 +352,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Slack workflow notification"
-        uses: Gamesight/slack-workflow-status@68bf00d0dbdbcb206c278399aa1ef6c14f74347a #v1.3.0
+        uses: Gamesight/slack-workflow-status@68bf00d0dbdbcb206c278399aa1ef6c14f74347a
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}

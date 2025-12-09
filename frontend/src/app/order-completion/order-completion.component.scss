@@ -58,7 +58,7 @@ mat-header-cell {
 }
 
 .table-container {
-  // without setting it to auto, angular material limit the height and cuts off the table
+  
   --mat-table-footer-container-height: auto;
 }
 

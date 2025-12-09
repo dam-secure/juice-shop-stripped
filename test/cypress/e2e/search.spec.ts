@@ -5,7 +5,7 @@ describe('/#/search', () => {
     cy.visit('/#/search')
   })
   describe('challenge "localXss"', () => {
-    // Cypress alert bug
+    
     xit('search query should be susceptible to reflected XSS attacks', () => {
       cy.get('#searchQuery').click()
       cy.get('app-mat-search-bar input')
@@ -69,7 +69,7 @@ describe('/rest/products/search', () => {
                 foundProduct = true
               }
             })
-            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            // eslint-disable comment removed
             expect(foundProduct).to.be.true
           })
         })
@@ -96,7 +96,7 @@ describe('/rest/products/search', () => {
                 foundProduct = true
               }
             })
-            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            // eslint-disable comment removed
             expect(foundProduct).to.be.true
           })
         })

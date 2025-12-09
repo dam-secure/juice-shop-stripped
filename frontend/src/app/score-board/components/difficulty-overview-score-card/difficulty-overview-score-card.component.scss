@@ -2,7 +2,7 @@ $vertical-margin: 4px;
 $vertical-padding: 8px;
 
 :host {
-  // use 2 columns ipads and smaller
+  
   @media (max-width: 810px) {
     grid-column: span 2;
   }
@@ -47,7 +47,7 @@ $vertical-padding: 8px;
   .star-difficulty-label {
     font-size: 11px;
     line-height: 11px;
-    // text looks a bit more centered in the star if it is a bit under the center
+    
     margin-top: 2px;
     position: absolute;
   }

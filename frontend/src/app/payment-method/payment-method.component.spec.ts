@@ -148,11 +148,11 @@ describe('PaymentMethodComponent', () => {
     component.numberControl.setValue(1111110)
     expect(component.numberControl.valid).toBeFalsy()
 
-    // eslint-disable-next-line no-loss-of-precision
+    // eslint-disable comment removed
     component.numberControl.setValue(99999999999999999)
     expect(component.numberControl.valid).toBeFalsy()
 
-    // eslint-disable-next-line no-loss-of-precision
+    // eslint-disable comment removed
     component.numberControl.setValue(9999999999999999)
     expect(component.numberControl.valid).toBe(true)
     component.numberControl.setValue(1234567887654321)

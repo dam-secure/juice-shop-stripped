@@ -16,7 +16,7 @@ describe('/profile/image/file', () => {
   it('POST profile image file valid for JPG format', () => {
     const file = path.resolve(__dirname, '../files/validProfileImage.jpg')
     const form = frisby.formData()
-    form.append('file', fs.createReadStream(file) as unknown as Blob) // casting to blob as the frisby types are wrong and wont accept the fileStream type
+    form.append('file', fs.createReadStream(file) as unknown as Blob) 
 
     return frisby.post(`${REST_URL}/user/login`, {
       headers: jsonHeader,
@@ -30,7 +30,7 @@ describe('/profile/image/file', () => {
         return frisby.post(`${URL}/profile/image/file`, {
           headers: {
             Cookie: `token=${jsonLogin.authentication.token}`,
-            // @ts-expect-error FIXME form.getHeaders() is not found
+            // @ts-expect-error comment removed
             'Content-Type': form.getHeaders()['content-type']
           },
           body: form,
@@ -43,7 +43,7 @@ describe('/profile/image/file', () => {
   it('POST profile image file invalid type', () => {
     const file = path.resolve(__dirname, '../files/invalidProfileImageType.docx')
     const form = frisby.formData()
-    form.append('file', fs.createReadStream(file) as unknown as Blob) // casting to blob as the frisby types are wrong and wont accept the fileStream type
+    form.append('file', fs.createReadStream(file) as unknown as Blob) 
 
     return frisby.post(`${REST_URL}/user/login`, {
       headers: jsonHeader,
@@ -57,7 +57,7 @@ describe('/profile/image/file', () => {
         return frisby.post(`${URL}/profile/image/file`, {
           headers: {
             Cookie: `token=${jsonLogin.authentication.token}`,
-            // @ts-expect-error FIXME form.getHeaders() is not found
+            // @ts-expect-error comment removed
             'Content-Type': form.getHeaders()['content-type']
           },
           body: form
@@ -72,10 +72,10 @@ describe('/profile/image/file', () => {
   it('POST profile image file forbidden for anonymous user', () => {
     const file = path.resolve(__dirname, '../files/validProfileImage.jpg')
     const form = frisby.formData()
-    form.append('file', fs.createReadStream(file) as unknown as Blob) // casting to blob as the frisby types are wrong and wont accept the fileStream type
+    form.append('file', fs.createReadStream(file) as unknown as Blob) 
 
     return frisby.post(`${URL}/profile/image/file`, {
-      // @ts-expect-error FIXME form.getHeaders() is not found
+      // @ts-expect-error comment removed
       headers: { 'Content-Type': form.getHeaders()['content-type'] },
       body: form
     })
@@ -102,7 +102,7 @@ describe('/profile/image/url', () => {
         return frisby.post(`${URL}/profile/image/url`, {
           headers: {
             Cookie: `token=${jsonLogin.authentication.token}`,
-            // @ts-expect-error FIXME form.getHeaders() is not found
+            // @ts-expect-error comment removed
             'Content-Type': form.getHeaders()['content-type']
           },
           body: form,
@@ -128,7 +128,7 @@ describe('/profile/image/url', () => {
         return frisby.post(`${URL}/profile/image/url`, {
           headers: {
             Cookie: `token=${jsonLogin.authentication.token}`,
-            // @ts-expect-error FIXME form.getHeaders() is not found
+            // @ts-expect-error comment removed
             'Content-Type': form.getHeaders()['content-type']
           },
           body: form,
@@ -138,12 +138,12 @@ describe('/profile/image/url', () => {
       })
   })
 
-  xit('POST profile image URL forbidden for anonymous user', () => { // FIXME runs into "socket hang up"
+  xit('POST profile image URL forbidden for anonymous user', () => { 
     const form = frisby.formData()
     form.append('imageUrl', 'cataas.com/cat')
 
     return frisby.post(`${URL}/profile/image/url`, {
-      // @ts-expect-error FIXME form.getHeaders() is not found
+      // @ts-expect-error comment removed
       headers: { 'Content-Type': form.getHeaders()['content-type'] },
       body: form
     })
@@ -152,10 +152,10 @@ describe('/profile/image/url', () => {
       .expect('bodyContains', 'Error: Blocked illegal activity')
   })
 
-  xit('POST valid image with tampered content length', () => { // FIXME Fails on CI/CD pipeline
+  xit('POST valid image with tampered content length', () => { 
     const file = path.resolve(__dirname, '../files/validProfileImage.jpg')
     const form = frisby.formData()
-    form.append('file', fs.createReadStream(file) as unknown as Blob) // casting to blob as the frisby types are wrong and wont accept the fileStream type
+    form.append('file', fs.createReadStream(file) as unknown as Blob) 
 
     return frisby.post(`${REST_URL}/user/login`, {
       headers: jsonHeader,
@@ -169,7 +169,7 @@ describe('/profile/image/url', () => {
         return frisby.post(`${URL}/profile/image/file`, {
           headers: {
             Cookie: `token=${jsonLogin.authentication.token}`,
-            // @ts-expect-error FIXME form.getHeaders() is not found
+            // @ts-expect-error comment removed
             'Content-Type': form.getHeaders()['content-type'],
             'Content-Length': 42
           },

@@ -20,15 +20,15 @@
   min-height: 120px;
   row-gap: 8px;
 
-  // use 3 columns on large(ish) screens
+  
   @media (max-width: 1500px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  // use 2 columns ipads and smaller
+  
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  // use 1 column on extra small screens
+  
   @media (max-width: 600px) {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -42,15 +42,15 @@
   margin-top: 32px;
   row-gap: 12px;
 
-  // use 3 columns on large(ish) screens
+  
   @media (max-width: 1500px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  // use 2 columns ipads and smaller
+  
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  // use 1 column on extra small screens
+  
   @media (max-width: 600px) {
     grid-template-columns: repeat(1, 1fr);
   }

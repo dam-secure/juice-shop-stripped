@@ -17,10 +17,10 @@ export function retrieveBasket () {
     const id = req.params.id
     BasketModel.findOne({ where: { id }, include: [{ model: ProductModel, paranoid: false, as: 'Products' }] })
       .then((basket: BasketModel | null) => {
-        /* jshint eqeqeq:false */
+        
         challengeUtils.solveIf(challenges.basketAccessChallenge, () => {
           const user = security.authenticatedUsers.from(req)
-          return user && id && id !== 'undefined' && id !== 'null' && id !== 'NaN' && user.bid && user?.bid != parseInt(id, 10) // eslint-disable-line eqeqeq
+          return user && id && id !== 'undefined' && id !== 'null' && id !== 'NaN' && user.bid && user?.bid != parseInt(id, 10) // eslint-disable comment removed
         })
         if (((basket?.Products) != null) && basket.Products.length > 0) {
           for (let i = 0; i < basket.Products.length; i++) {

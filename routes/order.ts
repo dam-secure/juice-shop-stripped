@@ -187,7 +187,7 @@ function calculateApplicableDiscount (basket: BasketModel, req: Request) {
     const couponDate = Number(couponData[1])
     const campaign = campaigns[couponCode as keyof typeof campaigns]
 
-    if (campaign && couponDate == campaign.validOn) { // eslint-disable-line eqeqeq
+    if (campaign && couponDate == campaign.validOn) { // eslint-disable comment removed
       challengeUtils.solveIf(challenges.manipulateClockChallenge, () => { return campaign.validOn < new Date().getTime() })
       return campaign.discount
     }

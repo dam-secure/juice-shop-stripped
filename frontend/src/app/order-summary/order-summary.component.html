@@ -7,7 +7,7 @@
     <div class="column flex-50">
       @if (address && paymentMethod) {
         <div class="container">
-          <!-- Delivery Address Card -->
+          
           <mat-card appearance="outlined" class="mat-elevation-z0 flex-60">
             <div class="mdc-card">
               <div><b>{{"LABEL_DELIVERY_ADDRESS" | translate}}</b></div>
@@ -17,7 +17,7 @@
               <div><span>{{"PHONE_NUMBER" | translate}}</span> {{address?.mobileNum}}</div>
             </div>
           </mat-card>
-          <!-- Payment Method Card -->
+          
           @if (paymentMethod !== 'wallet') {
             <mat-card appearance="outlined" class="mat-elevation-z0 flex-40">
               <div class="mdc-card">
@@ -27,7 +27,7 @@
               </div>
             </mat-card>
           } @else {
-          <!-- Digital Wallet (Fallback) -->
+          
             <mat-card appearance="outlined" class="mat-elevation-z0 flex-40">
               <div class="mdc-card">
                 <div><b>{{"PAYMENT_METHOD" | translate}}</b></div>
@@ -37,12 +37,12 @@
           }
         </div>
       }
-      <!-- Purchase Basket -->
+      
       <app-purchase-basket id="app-purchase-basket" [allowEdit]="false" [totalPrice]="false"
       (emitTotal)="getMessage($event)"></app-purchase-basket>
     </div>
 
-    <!-- Order Summary Card -->
+    
     <div class="flex-50">
       <mat-card appearance="outlined" class="mat-elevation-z0 fill">
         <div class="mdc-card">
@@ -65,13 +65,13 @@
               <td class="mat-footer-cell price">{{ (itemTotal + deliveryPrice - promotionalDiscount)?.toFixed(2) }}&curren;</td>
             </tr>
           </table>
-          <!-- Checkout Button -->
+          
           <button mat-raised-button mat-button class="btn btn-pay" color="primary" aria-label="Complete your purchase"
             id="checkoutButton" (click)="placeOrder()">
             <mat-icon>{{"monetization_on" | translate}}</mat-icon>
             <span>{{"PLACE_ORDER_AND_PAY" | translate}}</span>
           </button>
-          <!-- Bonus Points -->
+          
           <div class="bonus-points">{{ "CHECKOUT_FOR_BONUS_POINTS" | translate:{ bonus: bonus } }}</div>
         </div>
       </mat-card>

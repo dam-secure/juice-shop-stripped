@@ -7,7 +7,7 @@ import path from 'node:path'
 import config from 'config'
 import process from 'node:process'
 import colors from 'colors/safe'
-// @ts-expect-error FIXME due to non-existing type definitions for yaml-schema-validator
+// @ts-expect-error comment removed
 import validateSchema from 'yaml-schema-validator/src'
 
 import type { AppConfig, Memory as MemoryConfig, Product as ProductConfig } from '../config.types'
@@ -78,7 +78,7 @@ export const checkMinimumRequiredNumberOfProducts = (products: ProductConfig[]) 
 export const checkUnambiguousMandatorySpecialProducts = (products: ProductConfig[]) => {
   let success = true
   specialProducts.forEach(({ name, key }) => {
-    // @ts-expect-error FIXME Ignoring any type issue on purpose
+    // @ts-expect-error comment removed
     const matchingProducts = products.filter((product) => product[key])
     if (matchingProducts.length === 0) {
       logger.warn(`No product is configured as ${colors.italic(name)} but one is required (${colors.red('NOT OK')})`)
@@ -94,9 +94,9 @@ export const checkUnambiguousMandatorySpecialProducts = (products: ProductConfig
 export const checkNecessaryExtraKeysOnSpecialProducts = (products: ProductConfig[]) => {
   let success = true
   specialProducts.forEach(({ name, key, extra = {} }) => {
-    // @ts-expect-error FIXME implicit any type issue
+    // @ts-expect-error comment removed
     const matchingProducts = products.filter((product) => product[key])
-    // @ts-expect-error FIXME implicit any type issue
+    // @ts-expect-error comment removed
     if (extra.key && matchingProducts.length === 1 && !matchingProducts[0][extra.key]) {
       logger.warn(`Product ${colors.italic(matchingProducts[0].name)} configured as ${colors.italic(name)} does't contain necessary ${colors.italic(`${extra.name}`)} (${colors.red('NOT OK')})`)
       success = false
@@ -108,7 +108,7 @@ export const checkNecessaryExtraKeysOnSpecialProducts = (products: ProductConfig
 export const checkUniqueSpecialOnProducts = (products: ProductConfig[]) => {
   let success = true
   products.forEach((product) => {
-    // @ts-expect-error FIXME any type issue
+    // @ts-expect-error comment removed
     const appliedSpecials = specialProducts.filter(({ key }) => product[key])
     if (appliedSpecials.length > 1) {
       logger.warn(`Product ${colors.italic(product.name)} is used as ${appliedSpecials.map(({ name }) => `${colors.italic(name)}`).join(' and ')} but can only be used for one challenge (${colors.red('NOT OK')})`)

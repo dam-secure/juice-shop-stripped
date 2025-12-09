@@ -2,7 +2,7 @@ import './commands'
 import './setup'
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
+  // eslint-disable comment removed
   namespace Cypress {
     interface Chainable {
       expectChallengeSolved: (value: { challenge: string }) => void

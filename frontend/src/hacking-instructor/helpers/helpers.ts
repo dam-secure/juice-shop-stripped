@@ -198,10 +198,7 @@ export function waitForLogOut () {
   }
 }
 
-/**
- * see https://stackoverflow.com/questions/7798748/find-out-whether-chrome-console-is-open/48287643#48287643
- * does detect when devtools are opened horizontally or vertically but not when undocked or open on page load
- */
+
 export function waitForDevTools () {
   const initialInnerHeight = window.innerHeight
   const initialInnerWidth = window.innerWidth

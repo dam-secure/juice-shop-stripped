@@ -28,7 +28,7 @@ button {
 mat-card img {
   height: 100px;
   margin-left: 15px !important;
-  margin-right: 2px !important; //Adjusts the default margin to minimize the gap as required
+  margin-right: 2px !important; 
 }
 
 .responsibility-header {
@@ -56,7 +56,7 @@ h1 {
 }
 
 .left-container {
-  display: flex; // Use flex to prevent margin disappearing after reload.
+  display: flex; 
 
   flex-direction: column;
   gap: 20px;

@@ -57,7 +57,7 @@ export const DomXssInstruction: ChallengeInstruction = {
       text: 'Hit enter again.',
       fixture: '#product-search-fixture',
       unskippable: true,
-      resolved: waitForElementsInnerHtmlToBe('#searchValue', '<h1>owasp</h1>') // Browsers will autocorrect the unclosed tag.
+      resolved: waitForElementsInnerHtmlToBe('#searchValue', '<h1>owasp</h1>') 
     },
     {
       text: "Hmm, this doesn't look normal, does it?",

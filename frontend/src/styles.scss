@@ -96,7 +96,7 @@
   }
 }
 
-// sets css variables to be used across components during runtime
+
 @mixin css-vars($theme) {
   --theme-primary: #{mat.m2-get-color-from-palette(map.get($theme, primary))};
   --theme-primary-lighter: #{color.adjust(mat.m2-get-color-from-palette(map.get($theme, primary)), $lightness: 6%)};
@@ -152,7 +152,7 @@
   --theme-background-dark: #{color.adjust(mat.m2-get-color-from-palette(map.get($theme, background), card), $lightness: -10%)};
   --theme-background-darkest: #{color.adjust(mat.m2-get-color-from-palette(map.get($theme, background), card), $lightness: -14%)};
 
-  // make background of search field transparent
+  
   --mdc-filled-text-field-container-color: #0000;
   --mdc-filled-text-field-disabled-container-color: #0000;
 }
@@ -247,11 +247,11 @@ $bg-hacking-instructor: rgba(0, 0, 0, 0.3);
 }
 
 .mat-expansion-panel-header {
-  // If the panel, that the header is in, is inside an element being animated by Angular,
-  // the default behavior is to block all child animations. This means that the header's
-  // height won't kick in until the parent animation is done. We add a fallback to the
-  // header's default height. If the animations aren't blocked, these styles will be overridden
-  // by the inline styles from the animations module.
+  
+  
+  
+  
+  
   .ng-animating .mat-expansion-panel & {
     min-height: 48px;
   }
@@ -262,13 +262,13 @@ $bg-hacking-instructor: rgba(0, 0, 0, 0.3);
 }
 
 .mat-expansion-panel-content {
-  // If the expansion panel is inside an element being animated by Angular,
-  // the default behavior is to block all child animations. This means that the
-  // default `height: 0` won't kick in until the parent animation is over, which
-  // will cause the panel to appear open, before it snaps into place. We don't want
-  // to set the default height to zero, because it'll break the `height: '*'` from
-  // the animation definitions. Instead we add a fallback that only applies only if
-  // it's inside a parent that is mid-animation.
+  
+  
+  
+  
+  
+  
+  
   .ng-animating .mat-expansion-panel:not(.mat-expanded) & {
     height: 0;
     overflow: hidden;
@@ -302,7 +302,7 @@ div.mdc-card {
 }
 
 
-/* override Angular Material tooltip max-height for score-board hints */
+
 .mat-mdc-tooltip-surface {
   max-height: none !important;
 }

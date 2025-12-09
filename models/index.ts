@@ -26,7 +26,7 @@ import { UserModelInit } from './user'
 import { WalletModelInit } from './wallet'
 import { Sequelize, Transaction } from 'sequelize'
 
-/* jslint node: true */
+/* jslint comment removed */
 const sequelize = new Sequelize('database', 'username', 'password', {
   dialect: 'sqlite',
   retry: {

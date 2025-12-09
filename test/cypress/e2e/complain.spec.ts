@@ -12,7 +12,7 @@ describe('/#/complain', () => {
     it('should be possible to upload files greater 100 KB directly through backend', () => {
       cy.window().then(async () => {
         const over100KB = Array.apply(null, new Array(11000)).map(
-          // eslint-disable-next-line @typescript-eslint/unbound-method
+          // eslint-disable comment removed
           String.prototype.valueOf,
           '1234567890'
         )
@@ -94,7 +94,7 @@ describe('/#/complain', () => {
           cy.get('#complaintMessage').type('XXE Dev Random!')
           cy.get('#file').selectFile('test/files/xxeDevRandom.xml')
           cy.get('#submitButton').click()
-          cy.wait(5000) // Wait for 2.5x timeout of XML parser
+          cy.wait(5000) 
         }
       })
     })
@@ -105,12 +105,12 @@ describe('/#/complain', () => {
           cy.get('#complaintMessage').type('XXE Quadratic Blowup!')
           cy.get('#file').selectFile('test/files/xxeQuadraticBlowup.xml')
           cy.get('#submitButton').click()
-          cy.wait(5000) // Wait for 2.5x timeout of XML parser
+          cy.wait(5000) 
         }
       })
     })
 
-    xit('should be solved either through dev/random or Quadratic Blowup attack', () => { // FIXME Unreliable during CI/CD as sometimes the Quadratic Blowup is blocked for entity loops
+    xit('should be solved either through dev/random or Quadratic Blowup attack', () => { 
       cy.task('isDocker').then((isDocker) => {
         if (!isDocker) {
           cy.expectChallengeSolved({ challenge: 'XXE DoS' })
@@ -126,7 +126,7 @@ describe('/#/complain', () => {
           cy.get('#complaintMessage').type('YAML Bomb!')
           cy.get('#file').selectFile('test/files/yamlBomb.yml')
           cy.get('#submitButton').click()
-          cy.wait(5000) // Wait for 2.5x possible timeout of YAML parser
+          cy.wait(5000) 
           cy.expectChallengeSolved({ challenge: 'Memory Bomb' })
         }
       })

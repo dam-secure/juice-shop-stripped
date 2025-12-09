@@ -179,17 +179,17 @@ export class NavbarComponent implements OnInit {
 
     const query = this.languageSearchQuery.toLowerCase()
     this.filteredLanguages = this.languages.filter((lang: any) => {
-      // Filter by language name
+      
       if (lang.lang.toLowerCase().includes(query)) {
         return true
       }
 
-      // Filter by language key (e.g., 'en', 'fr', 'hi')
+      
       if (lang.key.toLowerCase().includes(query)) {
         return true
       }
 
-      // Filter by any additional language properties if needed
+      
       if (lang.shortKey?.toLowerCase()?.includes(query)) {
         return true
       }

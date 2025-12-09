@@ -54,7 +54,7 @@ export class DeluxeUserComponent implements OnInit {
   ngOnInit (): void {
     this.configurationService.getApplicationConfiguration().subscribe({
       next: (config) => {
-        const decalParam: string = this.route.snapshot.queryParams.testDecal // "Forgotten" test parameter to play with different stickers on the delivery box image
+        const decalParam: string = this.route.snapshot.queryParams.testDecal 
         if (config?.application) {
           if (config.application.name) {
             this.applicationName = config.application.name

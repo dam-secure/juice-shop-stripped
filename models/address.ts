@@ -11,7 +11,7 @@ import {
   DataTypes,
   type Sequelize
 } from 'sequelize'
-/* jslint node: true */
+/* jslint comment removed */
 class Address extends Model<
 InferAttributes<Address>,
 InferCreationAttributes<Address>

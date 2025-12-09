@@ -12,7 +12,7 @@ import { access } from 'node:fs/promises'
 import process from 'node:process'
 import semver from 'semver'
 import portscanner from 'portscanner'
-// @ts-expect-error FIXME due to non-existing type definitions for check-internet-connected
+// @ts-expect-error comment removed
 import checkInternetConnected from 'check-internet-connected'
 
 const domainDependencies = {
@@ -87,11 +87,11 @@ export const checkIfDomainReachable = async (domain: string) => {
     })
     .catch(() => {
       logger.warn(`Domain ${colors.bold(domain)} is not reachable (${colors.yellow('NOT OK')} in a future major release)`)
-      // @ts-expect-error FIXME Type problem by accessing key via variable
+      // @ts-expect-error comment removed
       domainDependencies[domain].forEach((dependency: string) => {
         logger.warn(`${colors.italic(dependency)} will not work as intended without access to ${colors.bold(domain)}`)
       })
-      return true // TODO Consider switching to "false" with breaking release v16.0.0 or later
+      return true 
     })
 }
 

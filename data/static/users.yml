@@ -34,7 +34,7 @@
   walletBalance: 100
   securityQuestion:
     id: 1
-    answer: 'Samuel' # https://en.wikipedia.org/wiki/James_T._Kirk
+    answer: 'Samuel'
   feedback:
     comment: 'Great shop! Awesome service!'
     rating: 4
@@ -65,7 +65,7 @@
   role: 'customer'
   securityQuestion:
     id: 10
-    answer: "Stop'n'Drop" # http://futurama.wikia.com/wiki/Suicide_booth
+    answer: "Stop'n'Drop"
   feedback:
     comment: 'Nothing useful available here!'
     rating: 1
@@ -117,7 +117,7 @@
   role: 'admin'
   securityQuestion:
     id: 10
-    answer: 'SC OLEA SRL' # http://www.olea.com.ro/
+    answer: 'SC OLEA SRL'
 -
   email: morty
   password: 'focusOnScienceMorty!focusOnScience'
@@ -126,7 +126,7 @@
   walletBalance: 100
   securityQuestion:
     id: 7
-    answer: '5N0wb41L' # http://rickandmorty.wikia.com/wiki/Snuffles
+    answer: '5N0wb41L'
 -
   email: mc.safesearch
   password: 'Mr. N00dles'
@@ -170,7 +170,7 @@
   isAdmin: true
   securityQuestion:
     id: 9
-    answer: 'West-2082' # http://www.alte-postleitzahlen.de/uetersen
+    answer: 'West-2082'
 -
   email: bjoern@owasp.org
   password: 'kitten lesser pooch karate buffoon indoors'
@@ -180,7 +180,7 @@
   profileImage: '13.jpg'
   securityQuestion:
     id: 7
-    answer: 'Zaya' # https://www.youtube.com/watch?v=Lu0-kDdtVf4
+    answer: 'Zaya'
 -
   email: chris.pike
   password: 'uss enterprise'
@@ -201,13 +201,13 @@
     answer: 'sdAffsdfrefrbgreq3423'
 -
   email: uvogin
-  password: 'muda-muda > ora-ora' # https://www.youtube.com/watch?v=vnJv8IoLMwc
+  password: 'muda-muda > ora-ora'
   key: uvogin
   role: 'customer'
   walletBalance: 100
   securityQuestion:
     id: 12
-    answer: 'Silence of the Lambs' # https://www.imdb.com/title/tt0102926/
+    answer: 'Silence of the Lambs'
 -
   email: demo
   password: 'demo'
@@ -252,7 +252,7 @@
   role: 'deluxe'
   securityQuestion:
     id: 10
-    answer: "Used Ship Emporium" # https://monkeyisland.fandom.com/wiki/Stan_S._Stanman
+    answer: "Used Ship Emporium"
 -
   email: ethereum
   username: evmrox

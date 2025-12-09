@@ -39,7 +39,7 @@ describe('/rest/products/:id/reviews', () => {
       .expect('jsonTypes', reviewResponseSchema)
   })
 
-  xit('GET product reviews by alphanumeric non-mongoDB-command product id', () => { // FIXME Turn on when #1960 is resolved
+  xit('GET product reviews by alphanumeric non-mongoDB-command product id', () => { 
     return frisby.get(`${REST_URL}/products/kaboom/reviews`)
       .expect('status', 400)
   })
@@ -146,7 +146,7 @@ describe('/rest/products/reviews', () => {
   })
 
   it('PATCH multiple product review via injection', () => {
-    // Count all the reviews. (Count starts at one because of the review inserted by the other tests...)
+    
     const totalReviews = config.get<Product[]>('products').reduce((sum: number, { reviews = [] }: any) => sum + reviews.length, 1)
 
     return frisby.patch(`${REST_URL}/products/reviews`, {

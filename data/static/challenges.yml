@@ -1365,7 +1365,7 @@
   mitigationUrl: ~
   key: freeDeluxeChallenge
 -
-  name: 'CSRF' # FIXME No e2e test automation! No longer works in Chrome >=80 and Firefox >=100 or other latest browsers!
+  name: 'CSRF'
   category: 'Broken Access Control'
   description: 'Change the name of a user by performing Cross-Site Request Forgery from <a href="http://htmledit.squarefree.com">another origin</a>.'
   difficulty: 3

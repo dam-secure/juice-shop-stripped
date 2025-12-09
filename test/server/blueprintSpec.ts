@@ -16,7 +16,7 @@ chai.use(sinonChai)
 
 async function parseExifData (path: string): Promise<any> {
   return await new Promise((resolve, reject) => {
-    // eslint-disable-next-line no-new
+    // eslint-disable comment removed
     new ExifImage({ image: path }, (error: Error | null, exifData: any) => {
       if (error != null) {
         expect.fail(`Could not read EXIF data from ${path}`)
@@ -48,7 +48,7 @@ describe('blueprint', () => {
             pathToImage = path.resolve('frontend/src', pathToImage, product.image)
           }
 
-          if (product.exifForBlueprintChallenge?.[0]) { // Prevents failing test for sample or custom themes where null has been explicitly set as value for "exifForBlueprintChallenge". Warning: This makes the "Retrieve Blueprint" challenge probably unsolvable unless hints are placed elsewhere.
+          if (product.exifForBlueprintChallenge?.[0]) { 
             try {
               const exifData = await parseExifData(pathToImage)
               const properties = Object.values(exifData.image)

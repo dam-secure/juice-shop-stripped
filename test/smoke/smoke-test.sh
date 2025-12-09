@@ -1,9 +1,9 @@
 #!/bin/sh
 
-#
+
 # Copyright (c) 2014-2026 Bjoern Kimminich & the OWASP Juice Shop contributors.
 # SPDX-License-Identifier: MIT
-#
+
 
 printf "Waiting 20sec for %s to launch" "$1"
 sleep 5

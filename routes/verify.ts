@@ -29,7 +29,7 @@ export const forgedFeedbackChallenge = () => (req: Request, res: Response, next:
   challengeUtils.solveIf(challenges.forgedFeedbackChallenge, () => {
     const user = security.authenticatedUsers.from(req)
     const userId = user?.data ? user.data.id : undefined
-    return req.body?.UserId && req.body.UserId != userId // eslint-disable-line eqeqeq
+    return req.body?.UserId && req.body.UserId != userId // eslint-disable comment removed
   })
   next()
 }

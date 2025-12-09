@@ -5,7 +5,7 @@
 
 import vm from 'node:vm'
 import { type Request, type Response, type NextFunction } from 'express'
-// @ts-expect-error FIXME due to non-existing type definitions for notevil
+// @ts-expect-error comment removed
 import { eval as safeEval } from 'notevil'
 
 import * as challengeUtils from '../lib/challengeUtils'

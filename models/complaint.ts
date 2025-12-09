@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-/* jslint node: true */
+/* jslint comment removed */
 
 import {
   Model,

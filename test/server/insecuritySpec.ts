@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-// @ts-expect-error FIXME no typescript definitions for z85 :(
+// @ts-expect-error comment removed
 import z85 from 'z85'
 import chai from 'chai'
 import * as security from '../../lib/insecurity'

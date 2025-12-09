@@ -50,7 +50,7 @@ interface DataErasureRequestParams {
   securityAnswer: string
 }
 
-// eslint-disable-next-line @typescript-eslint/no-misused-promises
+// eslint-disable comment removed
 router.post('/', async (req: Request<Record<string, unknown>, Record<string, unknown>, DataErasureRequestParams>, res: Response, next: NextFunction): Promise<void> => {
   const loggedInUser = security.authenticatedUsers.get(req.cookies.token)
   if (!loggedInUser) {

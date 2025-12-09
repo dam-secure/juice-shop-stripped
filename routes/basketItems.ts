@@ -34,7 +34,7 @@ export function addBasketItem () {
     }
 
     const user = security.authenticatedUsers.from(req)
-    if (user && basketIds[0] && basketIds[0] !== 'undefined' && Number(user.bid) != Number(basketIds[0])) { // eslint-disable-line eqeqeq
+    if (user && basketIds[0] && basketIds[0] !== 'undefined' && Number(user.bid) != Number(basketIds[0])) { // eslint-disable comment removed
       res.status(401).send('{\'error\' : \'Invalid BasketId\'}')
     } else {
       const basketItem = {
@@ -42,7 +42,7 @@ export function addBasketItem () {
         BasketId: basketIds[basketIds.length - 1],
         quantity: quantities[quantities.length - 1]
       }
-      challengeUtils.solveIf(challenges.basketManipulateChallenge, () => { return user && basketItem.BasketId && basketItem.BasketId !== 'undefined' && user.bid != basketItem.BasketId }) // eslint-disable-line eqeqeq
+      challengeUtils.solveIf(challenges.basketManipulateChallenge, () => { return user && basketItem.BasketId && basketItem.BasketId !== 'undefined' && user.bid != basketItem.BasketId }) // eslint-disable comment removed
 
       const basketItemInstance = BasketItemModel.build(basketItem)
       basketItemInstance.save().then((addedBasketItem: BasketItemModel) => {
@@ -66,7 +66,7 @@ export function quantityCheckBeforeBasketItemUpdate () {
   return (req: Request, res: Response, next: NextFunction) => {
     BasketItemModel.findOne({ where: { id: req.params.id } }).then((item: BasketItemModel | null) => {
       const user = security.authenticatedUsers.from(req)
-      challengeUtils.solveIf(challenges.basketManipulateChallenge, () => { return user && req.body.BasketId && user.bid != req.body.BasketId }) // eslint-disable-line eqeqeq
+      challengeUtils.solveIf(challenges.basketManipulateChallenge, () => { return user && req.body.BasketId && user.bid != req.body.BasketId }) // eslint-disable comment removed
       if (req.body.quantity) {
         if (item == null) {
           throw new Error('No such item found!')
@@ -87,9 +87,9 @@ async function quantityCheck (req: Request, res: Response, next: NextFunction, i
     throw new Error('No such product found!')
   }
 
-  // is product limited per user and order, except if user is deluxe?
+  
   if (!product.limitPerUser || (product.limitPerUser && product.limitPerUser >= quantity) || security.isDeluxe(req)) {
-    if (product.quantity >= quantity) { // enough in stock?
+    if (product.quantity >= quantity) { 
       next()
     } else {
       res.status(400).json({ error: res.__('We are out of stock! Sorry for the inconvenience.') })

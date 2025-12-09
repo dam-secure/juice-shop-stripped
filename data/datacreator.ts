@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-/* jslint node: true */
+/* jslint comment removed */
 import { AddressModel } from '../models/address'
 import { BasketModel } from '../models/basket'
 import { BasketItemModel } from '../models/basketitem'
@@ -33,7 +33,7 @@ import { ordersCollection, reviewsCollection } from './mongodb'
 import { AllHtmlEntities as Entities } from 'html-entities'
 import * as datacache from './datacache'
 import * as security from '../lib/insecurity'
-// @ts-expect-error FIXME due to non-existing type definitions for replace
+// @ts-expect-error comment removed
 import replace from 'replace'
 
 const entities = new Entities()
@@ -73,8 +73,8 @@ async function createChallenges () {
 
   await Promise.all(
     challenges.map(async ({ name, category, description, difficulty, hints, mitigationUrl, key, disabledEnv, tutorial, tags }) => {
-      // todo(@J12934) change this to use a proper challenge model or something
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+      
+      // eslint-disable comment removed
       const { enabled: isChallengeEnabled, disabledBecause } = utils.getChallengeEnablementStatus({ disabledEnv: disabledEnv?.join(';') ?? '' } as ChallengeModel)
       description = description.replace('juice-sh.op', config.get<string>('application.domain'))
       description = description.replace('&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;', entities.encode(config.get('challenges.xssBonusPayload')))
@@ -90,7 +90,7 @@ async function createChallenges () {
           name,
           category,
           tags: (tags != null) ? tags.join(',') : undefined,
-          // todo(@J12934) currently missing the 'not available' text. Needs changes to the model and utils functions
+          
           description: isChallengeEnabled ? description : (description + ' <em>(This challenge is <strong>potentially harmful</strong> on ' + disabledBecause + '!)</em>'),
           difficulty,
           solved: false,
@@ -324,7 +324,7 @@ async function createProducts () {
     product.deluxePrice = product.deluxePrice ?? product.price
     product.description = product.description || 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
 
-    // set default image values
+    
     product.image = product.image ?? 'undefined.png'
     if (utils.isUrl(product.image)) {
       const imageUrl = product.image
@@ -334,7 +334,7 @@ async function createProducts () {
     return product
   })
 
-  // add Challenge specific information
+  
   const christmasChallengeProduct = products.find(({ useForChristmasSpecialChallenge }) => useForChristmasSpecialChallenge)
   const pastebinLeakChallengeProduct = products.find(({ keywordsForPastebinDataLeakChallenge }) => keywordsForPastebinDataLeakChallenge)
   const tamperingChallengeProduct = products.find(({ urlForProductTamperingChallenge }) => urlForProductTamperingChallenge)
@@ -353,7 +353,7 @@ async function createProducts () {
     pastebinLeakChallengeProduct.deletedDate = '2019-02-1 00:00:00.000 +00:00'
   }
   if (blueprintRetrievalChallengeProduct) {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    // eslint-disable comment removed
     let blueprint = blueprintRetrievalChallengeProduct.fileForRetrieveBlueprintChallenge!
     if (utils.isUrl(blueprint)) {
       const blueprintUrl = blueprint
@@ -388,7 +388,7 @@ async function createProducts () {
                   persistedProduct)
               })
             }
-            if (deletedDate) void deleteProduct(persistedProduct.id) // TODO Rename into "isDeleted" or "deletedFlag" in config for v14.x release
+            if (deletedDate) void deleteProduct(persistedProduct.id) 
           } else {
             throw new Error('No persisted product found!')
           }

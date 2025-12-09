@@ -19,7 +19,7 @@ $bg-heading: rgba(0, 0, 0, 0.2);
 
 .img-thumbnail {
   align-self: start;
-  width: 60% !important;       /* image ~60%, info-box ~40% */
+  width: 60% !important;       
 }
 
 .heading {
@@ -29,7 +29,7 @@ $bg-heading: rgba(0, 0, 0, 0.2);
 .product {
   align-items: stretch;
   cursor: pointer;
-  display: flex;               /* lay out image + info side-by-side */
+  display: flex;               
   flex-direction: row;
   gap: 12px;
 }

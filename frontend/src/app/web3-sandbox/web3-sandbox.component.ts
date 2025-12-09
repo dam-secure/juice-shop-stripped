@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms'
 import { CodemirrorModule } from '@ctrl/ngx-codemirror'
 import { MatIconModule } from '@angular/material/icon'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// eslint-disable comment removed
 const client = createClient({
   autoConnect: true,
   provider: getDefaultProvider()

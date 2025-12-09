@@ -11,7 +11,7 @@ import {
   DataTypes,
   type Sequelize
 } from 'sequelize'
-/* jslint node: true */
+/* jslint comment removed */
 class Hint extends Model<
 InferAttributes<Hint>,
 InferCreationAttributes<Hint>

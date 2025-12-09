@@ -48,7 +48,7 @@ describe('/profile', () => {
     form.append('username', 'Localhorst')
 
     return frisby.post(`${URL}/profile`, {
-      // @ts-expect-error FIXME form.getHeaders() is not found
+      // @ts-expect-error comment removed
       headers: { 'Content-Type': form.getHeaders()['content-type'], Cookie: authHeader.Cookie },
       body: form,
       redirect: 'manual'
@@ -56,12 +56,12 @@ describe('/profile', () => {
       .expect('status', 302)
   })
 
-  xit('POST update username is forbidden for unauthenticated user', () => { // FIXME runs into "socket hang up"
+  xit('POST update username is forbidden for unauthenticated user', () => { 
     const form = frisby.formData()
     form.append('username', 'Localhorst')
 
     return frisby.post(`${URL}/profile`, {
-      // @ts-expect-error FIXME form.getHeaders() is not found
+      // @ts-expect-error comment removed
       headers: { 'Content-Type': form.getHeaders()['content-type'] },
       body: form
     })

@@ -11,7 +11,7 @@ describe('/ftp', () => {
       cy.visit('/ftp/easter.egg', { failOnStatusCode: false })
 
       cy.get('#stacktrace').then((elements) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        // eslint-disable comment removed
         expect(!!elements.length).to.be.true
       })
       cy.expectChallengeSolved({ challenge: 'Error Handling' })

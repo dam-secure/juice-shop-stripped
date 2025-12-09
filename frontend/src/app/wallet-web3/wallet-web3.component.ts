@@ -20,7 +20,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
 const { ethereum } = window
 const BankAddress = '0x413744D59d31AFDC2889aeE602636177805Bd7b0'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// eslint-disable comment removed
 const client = createClient({
   autoConnect: true,
   provider: getDefaultProvider()
@@ -67,7 +67,7 @@ export class WalletWeb3Component implements OnInit {
       const transaction = await contract.ethdeposit(this.metamaskAddress, {
         value: ethers.utils.parseEther(depositAmount)
       })
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable comment removed
       const txConfirmation = await transaction.wait()
       this.getUserEthBalance()
     } catch (error) {
@@ -85,7 +85,7 @@ export class WalletWeb3Component implements OnInit {
       const transaction = await contract.withdraw(
         ethers.utils.parseEther(withdrawalAmount)
       )
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable comment removed
       const txConfirmation = await transaction.wait()
       this.getUserEthBalance()
     } catch (error) {

@@ -75,12 +75,12 @@ mat-card-title {
 }
 
 .mat-mdc-header-cell:first-child {
-  //  Apply 24px padding only to the first column
+  
   padding-left: 24px !important;
 }
 
 .mat-mdc-header-cell:not(:first-child) {
-  //  Keep 2px for the rest
+  
   padding-left: 2px !important;
 }
 

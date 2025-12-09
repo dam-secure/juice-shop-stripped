@@ -258,7 +258,7 @@ describe('/rest/saveLoginIp', () => {
       })
   })
 
-  xit('GET last login IP will be saved as remote IP when True-Client-IP is not present', () => { // FIXME Started to fail regularly on CI under Linux
+  xit('GET last login IP will be saved as remote IP when True-Client-IP is not present', () => { 
     return frisby.post(REST_URL + '/user/login', {
       headers: jsonHeader,
       body: {

@@ -15,7 +15,7 @@
     }
   </div>
   <div class="badge-group">
-    <!-- info text if the challenge is unavailable -->
+    
     @if (challenge.disabledEnv !== null && challenge.disabledEnv !== 'safetyMode') {
       <button
         class="badge"
@@ -32,7 +32,7 @@
         <mat-icon [style.color]="'var(--theme-warn)'">info_outline</mat-icon>
       </button>
     }
-    <!-- coding challenge badge -->
+    
     @if (applicationConfiguration.challenges.codingChallengesEnabled !== 'never' && challenge.hasCodingChallenge) {
       <button
         class="badge"
@@ -50,7 +50,7 @@
         <mat-icon>code</mat-icon>
       </button>
     }
-    <!-- mitigation link-->
+    
     @if (challenge.mitigationUrl && challenge.solved) {
       <a
         class="badge not-completable"
@@ -63,7 +63,7 @@
         <mat-icon>policy_outline</mat-icon>
       </a>
     }
-    <!-- ctf mode flag repeat-->
+    
     @if (challenge.solved && applicationConfiguration.ctf.showFlagsInNotifications) {
       <button
         class="badge"
@@ -74,7 +74,7 @@
         <mat-icon>flag_outline</mat-icon>
       </button>
     }
-    <!-- hacking instructor-->
+    
     @if (applicationConfiguration.hackingInstructor.isEnabled && hasInstructions(challenge.name)) {
       <button
         class="badge not-completable"
@@ -84,7 +84,7 @@
         <mat-icon>school_outline</mat-icon>
       </button>
     }
-    <!-- challenge hints  -->
+    
     @if (challenge.hintsAvailable > 0) {
       <button
         class="badge not-completable"

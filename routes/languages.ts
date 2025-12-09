@@ -7,7 +7,7 @@ import locales from '../data/static/locales.json'
 import fs from 'node:fs'
 import { type Request, type Response, type NextFunction } from 'express'
 
-export function getLanguageList () { // TODO Refactor and extend to also load backend translations from /i18n/*json and calculate joint percentage/gauge
+export function getLanguageList () { 
   return (req: Request, res: Response, next: NextFunction) => {
     const languages: Array<{ key: string, lang: any, icons: string[], shortKey: string, percentage: unknown, gauge: string }> = []
     let count = 0
@@ -23,7 +23,7 @@ export function getLanguageList () { // TODO Refactor and extend to also load ba
           next(new Error(`Unable to read i18n directory: ${err.message}`))
         }
         languageFiles.forEach((fileName) => {
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          // eslint-disable comment removed
           fs.readFile('frontend/dist/frontend/assets/i18n/' + fileName, 'utf-8', async (err, content) => {
             if (err != null) {
               next(new Error(`Unable to retrieve ${fileName} language file: ${err.message}`))

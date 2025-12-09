@@ -37,7 +37,7 @@ export function likeProductReviews () {
         { $inc: { likesCount: 1 } }
       )
 
-      // Artificial wait for timing attack challenge
+      
       await sleep(150)
       try {
         const updatedReview: Review = await db.reviewsCollection.findOne({ _id: id })

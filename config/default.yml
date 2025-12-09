@@ -1,13 +1,13 @@
 server:
   port: 3000
   basePath: ''
-  baseUrl: 'http://localhost:3000' # used for CSAF, e.g. https://example.com
+  baseUrl: 'http://localhost:3000'
 application:
-  domain: juice-sh.op # for pre-loaded email users
+  domain: juice-sh.op
   name: 'OWASP Juice Shop'
   logo: JuiceShop_Logo.png
   favicon: favicon_js.ico
-  theme: bluegrey-lightgreen # Options: bluegrey-lightgreen blue-lightblue deeppurple-amber indigo-pink pink-bluegrey purple-green deeporange-indigo
+  theme: bluegrey-lightgreen
   showVersionNumber: true
   showGitHubLinks: true
   localBackupEnabled: true
@@ -48,7 +48,7 @@ application:
     encryption: 'https://keybase.io/bkimminich/pgp_keys.asc?fingerprint=19c01cb7157e4645e9e2c863062a85a8cbfbdcda'
     acknowledgements: '/#/score-board'
     hiring: '/#/jobs'
-    csaf: '/.well-known/csaf/provider-metadata.json' # scheme,host,port taken from baseUrl
+    csaf: '/.well-known/csaf/provider-metadata.json'
   promotion:
     video: owasp_promo.mp4
     subtitles: owasp_promo.vtt
@@ -75,11 +75,11 @@ challenges:
   showSolvedNotifications: true
   showHints: true
   showMitigations: true
-  codingChallengesEnabled: solved # Options: never  solved  always
+  codingChallengesEnabled: solved
   restrictToTutorialsFirst: false
   overwriteUrlForProductTamperingChallenge: 'https://owasp.slack.com'
   xssBonusPayload: '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>'
-  safetyMode: auto # Options: enabled disabled auto
+  safetyMode: auto
   showFeedbackButtons: true
   csafHashValue: 7e7ce7c65db3bf0625fcea4573d25cff41f2f7e3474f2c74334b14fc65bb4fd26af802ad17a3a03bf0eee6827a00fb8f7905f338c31b5e6ea9cb31620242e843
   metricsIgnoredUserAgents:
@@ -90,7 +90,7 @@ challenges:
 hackingInstructor:
   isEnabled: true
   avatarImage: JuicyBot.png
-  hintPlaybackSpeed: normal # Options: faster fast normal slow slower
+  hintPlaybackSpeed: normal
 products:
   -
     name: 'Apple Juice (1000ml)'
@@ -251,8 +251,8 @@ products:
     name: 'OWASP Juice Shop Logo (3D-printed)'
     description: 'This rare item was designed and handcrafted in Sweden. This is why it is so incredibly expensive despite its complete lack of purpose.'
     price: 99.99
-    image: 3d_keychain.jpg # Exif metadata contains "OpenSCAD" as subtle hint...
-    fileForRetrieveBlueprintChallenge: JuiceShop.stl # ...to blueprint file type
+    image: 3d_keychain.jpg
+    fileForRetrieveBlueprintChallenge: JuiceShop.stl
     exifForBlueprintChallenge:
       - OpenSCAD
   -
@@ -460,5 +460,5 @@ memories:
     user: bjoernOwasp
 ctf:
   showFlagsInNotifications: false
-  showCountryDetailsInNotifications: none # Options: none  name  flag  both
+  showCountryDetailsInNotifications: none
   countryMapping: ~
